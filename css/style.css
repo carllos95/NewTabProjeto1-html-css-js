@@ -1,0 +1,507 @@
+/*Mobile 414px*/
+/*Header*/
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+.container-header{
+    background-color: #E0E0E0;
+}
+.form-body p{
+    display: none;
+}
+
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+.logo{
+    padding-left: 22px;
+}
+
+.text-header p{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #333333;
+}
+
+.menu-hamburguer{
+    padding-right: 22px;
+}
+.menu-hamburguer div{
+    width: 18px;
+    height: 2px;
+    background-color: #333333;
+    margin: 5px 0;
+}
+
+.menu-container ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 20px 0px;
+    position: absolute;
+    width: 85%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    background-color: #333333;
+    display: none;
+}
+
+.menu-container ul li{
+    font-size: 16px;
+    font-weight: 600;
+    Line-height: 19.2px;
+    margin: 7px 0px;
+    text-align: right;
+    padding: 0px 20px;
+}
+
+.menu-container ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-container ul li:nth-child(1){
+    text-align: left;
+    margin-bottom: 26px;
+}
+
+.menu-container ul li:hover:nth-child(1){
+    background-color: #333;
+}
+
+.menu-container ul li:hover{
+    background-color: #c4c4c4;
+}
+
+.menu-container ul li a:hover{
+    color: #333;
+}
+
+.menu-container:hover ul{
+    display: block;
+}
+
+/*Formulario transações*/
+
+.container-form-extract{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-body{
+    padding: 26px 20px 0px 20px;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.form-body label{
+    display: block;
+    margin-bottom: 2.78px;
+}
+
+.form-body select{
+    display: block;
+    width: 100%;
+    height: 32px;
+    border-color: #979797;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #888;
+}
+
+.form-body input{
+    display: block;
+    width: 100%;
+    height: 32px;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
+}
+
+.form-body select, input, button:focus{
+    outline-style: none;
+}
+
+.form-body button{
+    display: block;
+    width: 100%;
+    height: 32px;
+    margin-top: 20px;
+    background-color: #333;
+    border-style: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/*-----------------------------------------------------------------*/
+/*tag <hr> linha de separação do formulário e tabelas*/
+hr{
+    color: #979797;
+    margin: 28px 0px 23px 0px;
+}
+
+@media screen and (max-width: 400px) {
+    hr{
+        width: 315px;
+    }
+}
+
+/*-----------------------------------------------------------------*/
+
+/*Table Extrato-valores*/
+
+.container-extract{
+    margin: 0px 20px;
+    height: 311px;
+}
+
+.container-extract p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.table-config{
+    width: 100%;
+    height: 150px;
+    border-spacing: 0px;
+}
+
+.extract-title th{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.extract-title th:nth-child(1){
+    text-align: left;
+    padding-left: 51px;
+    border-bottom: 1px solid #979797;
+}
+
+.extract-title th:nth-child(2){
+    padding-right: 42px;
+    text-align: right;
+    border-bottom: 1px solid #979797;
+}
+
+.first-line-table td:nth-child(1){
+    width: 48px;
+    padding: 0px;
+    text-align: center;
+    border-bottom: 1px solid #979797;
+}
+
+.first-line-table td:nth-child(2){
+    text-align: left;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+}
+
+.first-line-table td:nth-child(3){
+    width: 150px;
+    padding-right: 20px;
+    text-align: right;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+}
+
+.second-line-table td:nth-child(1){
+    width: 48px;
+    text-align: center;
+    border-bottom: 1px solid #979797;
+}
+
+.second-line-table td:nth-child(2){
+    text-align: left;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+}
+
+.second-line-table td:nth-child(3){
+    width: 150px;
+    padding-right: 20px;
+    text-align: right;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+}
+
+.third-line-table td:nth-child(1){
+    width: 48px;
+    text-align: center;
+    border-bottom: 1px solid #979797;
+}
+
+.third-line-table td:nth-child(2){
+    text-align: left;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+}
+
+.third-line-table td:nth-child(3){
+    padding-right: 20px;
+    width: 150px;
+    text-align: right;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+}
+
+.forth-line-table td:nth-child(1){
+    font-size: 14px;
+    padding-left: 51px;
+    border: none;
+    font-weight: bold;
+}
+
+.forth-line-table td:nth-child(2){
+    width: 150px;
+    padding-right: 20px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.fifth-line-table td{
+    text-align: right;
+    padding-right: 20px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.footer{
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #333;
+    width: 100%;
+    height: 22px;
+}
+
+/*MediaQuery 768 - <forms>*/
+
+@media screen and (min-width: 768px){
+
+    .menu-container ul{
+        width: 252px;
+    }
+
+    .form-body p{
+        display: block;
+    }
+
+    .container-form-extract{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-body{
+        padding: 0px 19px 0px 19px;
+        margin: 20px 20px 44px 20px;
+        border: 1px solid #979797;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .form-body p{
+        margin: 20px 0px 25px 0px;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    
+    .form-body form{
+        display: flex;
+        flex-flow: wrap;
+    }
+    
+    .form-body select{
+        width: 150px;
+        height: 32px;
+        border-color: #979797;
+        border-radius: 5px;
+        margin-right: 20px;
+    }
+    
+    .form-body input{
+        width: 348px;
+        height: 32px;
+        border: 1px solid #979797;
+        border-radius: 5px;
+        margin-right: 20px;
+        padding: 0px;
+    }
+
+    .form-body form div:nth-child(3) input{
+        width: 150px;
+        margin-right: 0px;
+    }
+
+    .form-body button{
+        width: 200px;
+        margin-top: 0px;
+    }
+
+    .button-config{
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    hr{
+        display: none;
+    }
+    
+    .extract-title th:nth-child(2){
+        padding-right: 20px;
+    }
+}
+
+/*MedioaQuery 1112px - Tablet maior*/
+
+@media screen and (min-width:1024px){
+    
+    .content-header{
+        height: 80px;
+        max-width: 1100px;
+        margin: auto;
+        justify-content: space-between;
+    }
+    
+    .logo img{
+        width: 40px;
+    }
+    
+    .text-header p{
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .menu-hamburguer{
+        display: none;
+    }
+
+    .menu-container ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 510px;
+        height: 40px;
+        background-color: #fff;
+        color: #333;
+        margin: 20px 20px;
+        padding: 0px;
+    }
+
+    .menu-container ul li{
+        border-left: 1px solid #333;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0px;
+        padding: 0px 20px;
+    }
+
+    .menu-container ul li:nth-child(2){
+        border-left: 0;
+    }
+
+    .menu-container ul li a{
+        text-decoration: none;
+        color: #333;
+    }
+    
+    .menu-container ul li:nth-child(1){
+        display: none;
+    }
+
+    .menu-container:hover ul{
+        display: inline-flex;
+    }
+
+    .menu-container ul li a:hover{
+        background-color: #fff;
+    }
+
+    .menu-container ul li:hover{
+        background-color: #fff;
+    }
+
+    .container-form-extract{
+        display: flex;
+        flex-direction: row;
+        max-width: 1100px;
+    }
+    
+    .form-body{
+        width: 400px;
+        height: 334px;
+        border: 1px solid #d9d9d9;
+        border-radius: 5px;
+    }
+
+    .form-body form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-body select{
+        width: 100%;
+    }
+
+    .form-body input{
+        width: 100%;
+    }
+
+    .form-body form div:nth-child(3) input{
+        width: 100%;
+    }
+
+    .form-body button{
+        width: 100%;
+    }
+
+    .container-extract{
+        margin: 20px 0px;
+        padding-right: 20px;
+        width: 652px;
+        height: 281px;
+    }
+}
+
+@media screen and (min-width:1112px){
+    
+    .container-form-extract{
+        max-width: 1100;
+        margin: auto;
+    }
+    
+    .container-form-extract{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .text-header p{
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .container-extract{
+        margin: 20px 0px;
+        width: 652px;
+        height: 281px;
+    }
+      
+}
+

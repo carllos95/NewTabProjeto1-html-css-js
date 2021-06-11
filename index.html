@@ -1,0 +1,122 @@
+<html>
+
+    <head>
+
+        <title>Projeto NewTab 1</title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale-1">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <!--Start Header-->
+        <header class="container-header">
+            <div class="content-header">
+                <div class="logo">
+                    <img src="image/icon.png">
+                </div>
+
+                <div class="text-header">
+                    <p>Controle Financeiro</p>
+                </div>
+
+                <div class="menu-container">
+                    <div class="menu-hamburguer">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>    
+                    <ul>
+                        <li><img src="image/Vector.png"></li>
+                        <li><a href="#">Cadastro de transações</a></li>
+                        <li><a href="#">Limpar Dados</a></li>
+                        <li><a href="#">Salvar no servidor</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--End Header-->
+        
+        <!--Start form and table-->
+        <div class="container-form-extract">
+            <!--Start form - Classe referente ao corpo do formulário-->
+            <div class="form-body">
+                
+                <div>
+                    <p>Nova Transação</p>
+                </div>
+                
+                <form id="form">
+                    <div>
+                        <label for="tipo">Tipo de transação</label>
+                        <select id="tipo" required>
+                            <option value="Compra">Compra</option>
+                            <option value="Venda">Venda</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mercadoria">Nome da mercadoria</label>
+                        <input placeholder=" Nome da mercadoria" type="text" id="mercadoria" required>
+                    </div>
+                    <div>
+                        <label for="valor">Valor</label>
+                        <input type="text" id="valor" placeholder="R$ 0,00" required>
+                    </div>
+                    <div class="button-config">
+                        <button id="button_input" type="submit" value="adicionar transação">Adicionar transação</button>
+                    </div>
+                </form>
+                <hr>
+            </div>
+            
+            <!--End Form-->
+
+            <div class="container-extract">
+                
+                <p>Extrato de Transações</p>
+                
+                <table class="table-config">
+                    
+                    <tr class="extract-title">
+                        <th colspan="2">Mercadoria</th>
+                        <th>Valor</th>
+                    </tr>
+                    
+                    <tr class="first-line-table">
+                        <td>+</td>
+                        <td>Lorem ipsum dolor sit</td>
+                        <td>R$ 12.999,99</td>
+                    </tr>
+                    
+                    <tr class="second-line-table">
+                        <td>-</td>
+                        <td>Quis nostrud exercitation</td>
+                        <td>R$ 99,99</td>
+                    </tr>
+                    
+                    <tr class="third-line-table">
+                        <td>+</td>
+                        <td>Lorem ipsum </td>
+                        <td>R$ 9,99</td>
+                    </tr>
+                    
+                    <tr class="forth-line-table">
+                        <td colspan="2">Total</td>
+                        <td>R$ 12.909,99</td>
+                    </tr>
+
+                    <tr class="fifth-line-table">
+                        <td colspan="3">(Lucro)</td>
+                    </tr>
+                </table>
+            </div>
+            <footer >
+                <div class="footer"></div>
+            </footer>
+        </div>
+    </body>
+</html>
