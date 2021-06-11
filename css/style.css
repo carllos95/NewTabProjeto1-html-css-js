@@ -259,7 +259,6 @@ hr{
 .forth-line-table td:nth-child(1){
     font-size: 14px;
     padding-left: 51px;
-    border: none;
     font-weight: bold;
 }
 
