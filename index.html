@@ -9,6 +9,8 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
+        <script src="https://kit.fontawesome.com/12bfc7a935.js" crossorigin="anonymous"></script>
+
     </head>
 
     <body>
@@ -19,23 +21,19 @@
                 <div class="logo">
                     <img src="image/icon.png">
                 </div>
-
                 <div class="text-header">
                     <p>Controle Financeiro</p>
                 </div>
-
                 <div class="menu-container">
-                    <div class="menu-hamburguer">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>    
-                    <ul>
-                        <li><img src="image/Vector.png"></li>
-                        <li><a href="#">Cadastro de transações</a></li>
-                        <li><a href="#">Limpar Dados</a></li>
-                        <li><a href="#">Salvar no servidor</a></li>
-                    </ul>
+                    <a><i class="fas fa-bars"></i></a>   
+                    <nav class="menu-nav">
+                        <ul>
+                            <div class="close-icon-menu"><a href=""><i class="fas fa-times"></i></a></div>
+                            <li><a href="#">Cadastro de transações</a></li>|
+                            <li><a href="#">Salvar no servidor</a></li>|
+                            <li><a href="#">Limpar dados</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </header>
@@ -51,18 +49,18 @@
                 </div>
                 
                 <form id="form">
-                    <div>
+                    <div class="select-form-config">
                         <label for="tipo">Tipo de transação</label>
                         <select id="tipo" required>
                             <option value="Compra">Compra</option>
                             <option value="Venda">Venda</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="mercadoria-form-config">
                         <label for="mercadoria">Nome da mercadoria</label>
                         <input placeholder=" Nome da mercadoria" type="text" id="mercadoria" required>
                     </div>
-                    <div>
+                    <div class="valor-form-config">
                         <label for="valor">Valor</label>
                         <input type="text" id="valor" placeholder="R$ 0,00" required>
                     </div>
@@ -82,46 +80,54 @@
                 <table class="table-config">
                     
                     <tr class="extract-title">
-                        <th colspan="2">Mercadoria</th>
-                        <th>Valor</th>
+                        <th></th>
+                        <th class="align-text-left">Mercadoria</th>
+                        <th class="align-text-right">Valor</th>
                     </tr>
-                    
-                    <tr class="first-line-table">
-                        <td>+</td>
-                        <td>Lorem ipsum dolor sit</td>
-                        <td>R$ 12.999,99</td>
+                    <tr>
+                        <td colspan="3" class="border-between-row"></td>
                     </tr>
-                    
-                    <tr class="second-line-table">
-                        <td>-</td>
-                        <td>Quis nostrud exercitation</td>
-                        <td>R$ 99,99</td>
+                    <tr>
+                        <td class="symbol-table-config">+</td>
+                        <td class="align-text-left">Lorem ipsum dolor sit amet consectur</td>
+                        <td class="align-text-right">R$ 12.999,99</td>
                     </tr>
-                    
-                    <tr class="third-line-table">
-                        <td>+</td>
-                        <td>Lorem ipsum </td>
-                        <td>R$ 9,99</td>
+                    <tr>
+                        <td colspan="3" class="border-between-row"></td>
                     </tr>
-
-                    <tr class="second-line-table">
-                        <td colspan="3"></td>
+                    <tr>
+                        <td class="symbol-table-config">-</td>
+                        <td class="align-text-left">Quis nostrud exercitation</td>
+                        <td class="align-text-right">R$ 99,99</td>
                     </tr>
-                    
-                    <tr class="forth-line-table">
-                        <td colspan="2">Total</td>
-                        <td>R$ 12.909,99</td>
+                    <tr>
+                        <td colspan="3" class="border-between-row"></td>
                     </tr>
-
-                    <tr class="fifth-line-table">
-                        <td colspan="3">(Lucro)</td>
+                    <tr>
+                        <td class="symbol-table-config">+</td>
+                        <td class="align-text-left">Lorem ipsum </td>
+                        <td class="align-text-right">R$ 9,99</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="border-between-row"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="border-between-row-bottom"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="align-text-left">Total</td>
+                        <td class="align-text-right">R$ 12.909,99</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="align-text-right">(Lucro)</td>
                     </tr>
                 </table>
             </div>
-            <footer>
-                <div class="footer">
-                </div>
-            </footer>
         </div>
+        <footer>
+            <div class="footer">
+            </div>
+        </footer>
     </body>
 </html>
