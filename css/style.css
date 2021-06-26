@@ -212,6 +212,15 @@
   border-radius: 5px;
   color: #fff;
   font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.container-form-extract .form-body .mercadoria-form-config {
+  position: relative;
+}
+
+.container-form-extract .form-body .valor-form-config {
+  position: relative;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1111px) {
@@ -360,4 +369,10 @@
   background-color: #333;
   position: absolute;
   bottom: 0px;
+}
+
+.div-validar-form {
+  position: absolute;
+  top: 55px;
+  color: #f70000;
 }

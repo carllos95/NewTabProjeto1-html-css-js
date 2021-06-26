@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
         <script src="https://kit.fontawesome.com/12bfc7a935.js" crossorigin="anonymous"></script>
-
+        <script type = "text/javascript" src="js/script.js"></script>
     </head>
 
     <body>
@@ -51,21 +51,24 @@
                 <form id="form">
                     <div class="select-form-config">
                         <label for="tipo">Tipo de transação</label>
-                        <select id="tipo" required>
+                        <select id="tipo">
                             <option value="Compra">Compra</option>
                             <option value="Venda">Venda</option>
                         </select>
                     </div>
                     <div class="mercadoria-form-config">
                         <label for="mercadoria">Nome da mercadoria</label>
-                        <input placeholder=" Nome da mercadoria" type="text" id="mercadoria" required>
-                    </div>
+                        <input placeholder="Nome da mercadoria" type="text" id="mercadoria" required>
+                        <div id="divMercadoria" class="div-validar-form"></div>
+                    </div> 
                     <div class="valor-form-config">
                         <label for="valor">Valor</label>
-                        <input type="text" id="valor" placeholder="R$ 0,00" required>
+                        <input type="number" id="valor" placeholder="R$ 0,00" required onkeyup="convert()"> 
+                        <div id="divValor" class="div-validar-form"></div>
                     </div>
-                    <div class="button-config">
-                        <button id="button_input" type="submit" value="adicionar transação">Adicionar transação</button>
+                    <div class="button-config" onclick="validarForm()">
+                        <button id="button_input"
+                        value="adicionar transação">Adicionar transação</button>
                     </div>
                 </form>
                 <hr>
