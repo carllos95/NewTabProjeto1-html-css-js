@@ -50,7 +50,7 @@
                 height: 100%;
                 top: 0px;
                 right: 0px;
-
+                z-index: 3;
                 .close-icon-menu{
                     width: 20px;
                     height: 20px;
@@ -95,6 +95,7 @@
             @media screen and(min-width: 768px) and (max-width: 1111px) {
                 .menu-nav{
                     width: 252px;
+                    z-index: 3;
                 }
             }
         }

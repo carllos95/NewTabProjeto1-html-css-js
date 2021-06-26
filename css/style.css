@@ -53,6 +53,7 @@
   height: 100%;
   top: 0px;
   right: 0px;
+  z-index: 3;
 }
 
 .container-header .content-header .menu-container .menu-nav .close-icon-menu {
@@ -102,6 +103,7 @@
 @media screen and (min-width: 768px) and (max-width: 1111px) {
   .container-header .content-header .menu-container .menu-nav {
     width: 252px;
+    z-index: 3;
   }
 }
 
