@@ -11,9 +11,20 @@
 
         <script src="https://kit.fontawesome.com/12bfc7a935.js" crossorigin="anonymous"></script>
         <script type = "text/javascript" src="js/script.js"></script>
+        <!--Scripts Jquery - mascara do campo valor exemplo "1.000.000,00"-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type = "text/javascript" src="js/jquery.mask.js"></script>
+        <script type="text/javascript">
+            //Função responsavel por introduzir a mascara no input valor
+            $(document).ready(function(){
+                $('#valor').mask('#.##0,00', {reverse: true})
+            })
+        </script>
     </head>
-
-    <body>
+    <!--classe responsavel por carregar os dados da tabela, sempre que acontecer o carregamento do body/page-->
+    <body onload="carregarTabela(), carregarTotal()">
 
         <!--Start Header-->
         <header class="container-header">
@@ -51,31 +62,32 @@
                 <form id="form">
                     <div class="select-form-config">
                         <label for="tipo">Tipo de transação</label>
-                        <select id="tipo">
+                        <select id="tipo" required>
+                            <option value="">Tipo</option>
                             <option value="Compra">Compra</option>
                             <option value="Venda">Venda</option>
                         </select>
                     </div>
                     <div class="mercadoria-form-config">
                         <label for="mercadoria">Nome da mercadoria</label>
-                        <input placeholder="Nome da mercadoria" type="text" id="mercadoria" required>
-                        <div id="divMercadoria" class="div-validar-form"></div>
-                    </div> 
+                        <input placeholder=" Nome da mercadoria" type="text" id="mercadoria" required>
+                        <div id="erroMercadoria" class="erro"></div>
+                    </div>
+                    
                     <div class="valor-form-config">
                         <label for="valor">Valor</label>
-                        <input type="number" id="valor" placeholder="R$ 0,00" required onkeyup="convert()"> 
-                        <div id="divValor" class="div-validar-form"></div>
+                        <input type="text" id="valor" placeholder="R$ 0,00" required>
+                        <div id="erroValor" class="erro"></div>
                     </div>
-                    <div class="button-config" onclick="validarForm()">
-                        <button id="button_input"
-                        value="adicionar transação">Adicionar transação</button>
+                    
+                    <div class="button-config">
+                        <button id="button_input" type="submit" value="adicionar transação" onclick="cadastrarTransacoes()">Adicionar transação</button>
                     </div>
                 </form>
                 <hr>
             </div>
-            
             <!--End Form-->
-
+            <!--Start table container-->
             <div class="container-extract">
                 
                 <p>Extrato de Transações</p>
@@ -90,47 +102,33 @@
                     <tr>
                         <td colspan="3" class="border-between-row"></td>
                     </tr>
-                    <tr>
-                        <td class="symbol-table-config">+</td>
-                        <td class="align-text-left">Lorem ipsum dolor sit amet consectur</td>
-                        <td class="align-text-right">R$ 12.999,99</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="border-between-row"></td>
-                    </tr>
-                    <tr>
-                        <td class="symbol-table-config">-</td>
-                        <td class="align-text-left">Quis nostrud exercitation</td>
-                        <td class="align-text-right">R$ 99,99</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="border-between-row"></td>
-                    </tr>
-                    <tr>
-                        <td class="symbol-table-config">+</td>
-                        <td class="align-text-left">Lorem ipsum </td>
-                        <td class="align-text-right">R$ 9,99</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="border-between-row"></td>
-                    </tr>
+                    <tbody id="listarTabela">
+                        <tr>
+                            <td colspan="3">Não há transações cadastradas</td>
+                        </tr>
+                    </tbody>
+                                
                     <tr>
                         <td colspan="3" class="border-between-row-bottom"></td>
                     </tr>
+                    
                     <tr>
                         <td></td>
                         <td class="align-text-left">Total</td>
-                        <td class="align-text-right">R$ 12.909,99</td>
-                    </tr>
+                        <td class="align-text-right" id="recebeTotal">Total</td>
+                        </tr>
                     <tr>
                         <td colspan="3" class="align-text-right">(Lucro)</td>
                     </tr>
                 </table>
             </div>
+            <!--End table-->
         </div>
+        <!--Start footer-->
         <footer>
             <div class="footer">
             </div>
         </footer>
+        <!--End footer-->
     </body>
 </html>

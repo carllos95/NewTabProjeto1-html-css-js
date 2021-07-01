@@ -50,7 +50,7 @@
                 height: 100%;
                 top: 0px;
                 right: 0px;
-                z-index: 3;
+
                 .close-icon-menu{
                     width: 20px;
                     height: 20px;
@@ -95,7 +95,7 @@
             @media screen and(min-width: 768px) and (max-width: 1111px) {
                 .menu-nav{
                     width: 252px;
-                    z-index: 3;
+                    z-index: 2;
                 }
             }
         }
@@ -207,7 +207,6 @@
             border-radius: 5px;
             color: #fff;
             font-size: 0.875rem;
-            cursor: pointer;
         }
         .mercadoria-form-config{
             position: relative;
@@ -356,8 +355,8 @@
     bottom: 0px;
 }
 
-.div-validar-form{
+.erro{
     position: absolute;
-    top:55px;
+    top: 50px;
     color: rgb(247, 0, 0);
 }
