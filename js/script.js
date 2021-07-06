@@ -5,7 +5,7 @@ class Transacoes{
         this.mercadoria = mercadoria
         this.valor = valor
     }
-
+    // função para a validação dos campos
     validarDados(){
         for (let i in this) {
            if(this[i] === undefined || this[i] === "" || this[i] === null){
@@ -59,7 +59,7 @@ class Bd{
         return transacoes;
     }
 }
-
+// variavel global chamando a class Bd
 let bd = new Bd();
 //buscar Values dos campos select e input, por meio do ID - cadastrar transacoes
 function cadastrarTransacoes(){
@@ -77,6 +77,7 @@ function cadastrarTransacoes(){
         //função para gravar as transações no localStorage
         bd.gravar(transacoes);
         alert('Cadastrado com sucesso!')
+        carregarTabela()
     }
     else{
         alert('Preencha os campos corretamente!')
@@ -113,35 +114,72 @@ function carregarTabela(){
     }).join('')  
 }
 var total = 0
+// função para carregar o total da tabela, referente a posição do item dentro do array
 function carregarTabelaTotal(){
     let transacoes = Array();
     // chamar a classe recuperarDadosTabela(), para recuperar os dados salvos no localStorage
     transacoes = bd.recuperarDadosTabela();
     // chamar o id referente ao tbody da tabela
     t = 0
-    var totalArray = []
-    var totalNumber = []
+    var totalArrayVenda = []
+    var totalNumberVenda = []
+
+    var totalNumberCompra = []
+    var totalArrayCompra = []
+
     var totalVenda = 0
     var totalCompra = 0
-    
-    for(; t < transacoes.length; t++){
-        if(transacoes[t].tipo == "Venda"){
-        totalArray = [transacoes[t].valor.replace(/\D/g, '')]
-        totalNumber = Number.parseFloat(totalArray)
-        totalVenda += totalNumber
-        }  
-    }
     for(i = 0; i < transacoes.length; i++){
         if(transacoes[i].tipo == "Compra"){
-        totalArray = [transacoes[i].valor.replace(/\D/g, '')]
-        totalNumber = Number.parseFloat(totalArray)
-        totalCompra += totalNumber
+        totalArrayCompra = [transacoes[i].valor.replace(/\D/g, '')]
+        totalNumberCompra = Number.parseFloat(totalArrayCompra)
+        totalCompra += totalNumberCompra
+        }  
+    }
+    for(; t < transacoes.length; t++){
+        if(transacoes[t].tipo == "Venda"){
+        totalArrayVenda = [transacoes[t].valor.replace(/\D/g, '')]
+        totalNumberVenda = Number.parseFloat(totalArrayVenda)
+        totalVenda += totalNumberVenda
         }  
     }
     total = totalVenda - totalCompra
 }
+// função para carregar o total da tabela
 function carregarTotal(){
     carregarTabelaTotal()
     var recebeTotal = document.getElementById("recebeTotal")
-    recebeTotal.innerHTML = "R$ " + total
+    formatarMoeda()
+    var lucroPrejuizo = document.getElementById("lucroPrejuizo")
+    recebeTotal.innerHTML = "R$ " + totalFormatado
+    // se o total for maior que zero, será lucro
+    if(total > 0){
+        lucroPrejuizo.innerHTML = "[Lucro]"
+    }
+    // se o total for menor que zero, será prejuizo
+    else if(total < 0){
+        lucroPrejuizo.innerHTML = "[Prejuizo]"
+    }
+    // se for neutro, ele deixará em branco
+    else{
+        lucroPrejuizo.innerHTML = ""
+    }
+}
+// função para formatação da mascara total, que será exibida no campo total da tabela
+function formatarMoeda(){
+    totalFormatado = total;
+    totalFormatado = totalFormatado + '';
+    totalFormatado = parseInt(totalFormatado.replace(/[\D]+/g, ''));
+    totalFormatado = totalFormatado + '';
+    totalFormatado = totalFormatado.replace(/([0-9]{2})$/g, ",$1");
+    if (totalFormatado.length > 6) {
+        totalFormatado = totalFormatado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+    }
+}
+//função para deletar todos os dados do local storage
+function deletarTudo(){
+    localStorage.clear();
+    alert("Registro Excluidos");
+    carregarTabela();
+    carregarTotal();
 }
