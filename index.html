@@ -41,7 +41,7 @@
                         <ul>
                             <div class="close-icon-menu"><a href=""><i class="fas fa-times"></i></a></div>
                             <li><a href="#">Cadastro de transações</a></li>|
-                            <li><a href="#">Salvar no servidor</a></li>|
+                            <li><a href="#" onclick="escolherChamada()">Salvar no servidor</a></li>|
                             <li><a href="" onclick="deletarTudo()">Limpar dados</a></li>
                         </ul>
                     </nav>
@@ -79,7 +79,7 @@
                         <div id="erroValor" class="erro"></div>
                     </div>
                     <div class="button-config">
-                        <button id="button_input" type="submit" value="adicionar transação" onclick="cadastrarTransacoes()">Adicionar transação</button>
+                        <button id="button_input" type="button" value="adicionar transação" onclick="cadastrarTransacoes()">Adicionar transação</button>
                     </div>
                 </form>
                 <hr>
@@ -125,5 +125,8 @@
             </div>
         </footer>
         <!--End footer-->
+        <script>
+            getJson();
+        </script>
     </body>
 </html>

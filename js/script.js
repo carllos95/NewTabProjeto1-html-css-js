@@ -27,13 +27,11 @@ class Bd{
             localStorage.setItem('id', 0)
         }
     }
-
     //getItem = verificar/pegar se o objeto já existe no localStorage
     getProximoId(){
         let proximoId = localStorage.getItem('id');
         return parseInt(proximoId) + 1
     }
-    
     //setItem = gravar o objeto no localStorage "gravar(t = seletor da variavel)"
     gravar(t){
         let id = this.getProximoId()
@@ -82,6 +80,7 @@ function cadastrarTransacoes(){
     else{
         alert('Preencha os campos corretamente!')
     }
+    location.href = "./index.html"
 }
 // função responsavel por carregar os dados que estão armazenados no localStorage
 function carregarTabela(){
@@ -178,8 +177,120 @@ function formatarMoeda(){
 }
 //função para deletar todos os dados do local storage
 function deletarTudo(){
-    localStorage.clear();
-    alert("Registro Excluidos");
+    confirm = confirm("Tem certeza que deseja realizar a limpeza?")
+    if(confirm == true){
+        localStorage.clear();
+        deleteApiSave();
+        alert("Registro Excluidos");
+        
+    }
+    else{
+        alert("Registros Mantidos")
+    }
     carregarTabela();
     carregarTotal();
+}
+// função para criar id do aluno na API airTable
+var jsonApi = JSON.stringify(bd.recuperarDadosTabela());
+function create(){
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+        method: "POST",
+        headers: {
+            Authorization: 'Bearer key2CwkHb0CKumjuM',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            records: [
+                {
+                    fields: {
+                        Aluno: '7993',
+                        Json: jsonApi
+                    }
+                }
+            ]
+        })
+    })
+    update();
+}
+// função para alterar e introduzir novos dados ao id do aluno já existente na API airTable
+function update(){
+    getIdAluno()
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+        method: "PATCH",
+        headers: {
+            Authorization: 'Bearer key2CwkHb0CKumjuM',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            records: [
+                {
+                    id: idAluno,
+                    fields: {
+                        Aluno: '7993',
+                        Json: jsonApi
+                    }
+                }
+            ]
+        })
+    })
+}
+// função para deletar todos os registros com o id do aluno especifico na API airTable
+function deleteApiSave(){
+    getIdAluno()
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer key2CwkHb0CKumjuM");
+
+    var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico/" + idAluno, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}
+var jsonApiResult = {};
+// função para realizar o get da API
+function getJson(){
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico?maxRecords=&view=Grid%20view", {
+        headers: {
+            Authorization: 'Bearer key2CwkHb0CKumjuM'
+        },
+    }).then(response => response.json().then(result => {jsonApiResult = result}))
+}
+// função para pegar o id referente ao numero 7993 - meu id no airTable
+var idAluno = ""
+function getIdAluno(){
+    let i = 0;
+    for(; i < jsonApiResult.records.length; i++){
+        if(jsonApiResult.records[i].fields.Aluno == "7993"){
+            idAluno = jsonApiResult.records[i].id
+        }
+    }
+}
+// função para realizar verificação da variavel verificar
+var verificar = true;
+function verificarApi(){
+    let i = 0;
+    for(; i < jsonApiResult.records.length; i++){
+        if(jsonApiResult.records[i].fields.Aluno == "7993"){
+            verificar = true;
+        }
+        else{
+            verificar = false;
+        }
+    }
+}
+// função para escolher se irá ser criado ou alterado o id do aluno na API airTable
+function escolherChamada(){
+    verificarApi()
+    if(verificar == false){
+        create();
+    }
+    else{
+        update();
+    }
+    
 }
