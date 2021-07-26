@@ -53,6 +53,7 @@
   height: 100%;
   top: 0px;
   right: 0px;
+  z-index: 2;
 }
 
 .container-header .content-header .menu-container .menu-nav .close-icon-menu {
